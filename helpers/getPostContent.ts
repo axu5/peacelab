@@ -3,10 +3,10 @@ import matter from "gray-matter";
 import { folderLocation } from "@/constants/tutorial";
 
 export default function getMarkdownContent(
-    level: string,
-    slug: string
+    chapter: string,
+    lesson: string
 ) {
-    const filePath = `${folderLocation}/${level}/${slug}.md`;
+    const filePath = `${folderLocation}/${chapter}/${lesson}.md`;
     const file = fs.readFileSync(filePath, "utf8");
     const matterResult = matter(file);
     return matterResult;

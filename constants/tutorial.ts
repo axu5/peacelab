@@ -1,1 +1,1 @@
-export const folderLocation = "tutorials/";
+export const folderLocation = "tutorials";

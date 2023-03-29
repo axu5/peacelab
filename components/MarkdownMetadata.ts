@@ -1,6 +1,7 @@
 export interface MarkdownMetadata {
     title: string;
     subtitle: string;
+    path: string;
     slug: string;
-    level: string;
+    chapter: string;
 }
