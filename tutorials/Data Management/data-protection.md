@@ -1,6 +1,6 @@
 ---
 title: "Data backups"
-subtitle: "3-2-1 rule!"
+subtitle: "Backing up your data, especially for work, is so important that you need to learn about the 3-2-1 rule!"
 ---
 
 # Data backups
