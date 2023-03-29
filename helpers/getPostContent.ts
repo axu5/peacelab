@@ -1,3 +1,4 @@
+import { MarkdownMetadata } from "./../components/MarkdownMetadata";
 import fs from "fs";
 import matter from "gray-matter";
 import { folderLocation } from "@/constants/tutorial";
@@ -11,7 +12,7 @@ export default function getMarkdownContent(
     const matterResult = matter(file);
     const { data, ...rest } = matterResult;
     return {
-        metadata: data,
+        metadata: data as MarkdownMetadata,
         ...rest,
     };
 }

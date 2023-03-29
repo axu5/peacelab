@@ -19,6 +19,20 @@ export const generateStaticParams = async () => {
     });
 };
 
+export function generateMetadata({
+    params,
+}: {
+    params: PathVariable;
+}) {
+    const { chapter, lesson } = params;
+    const { metadata } = getMarkdownContent(chapter, lesson);
+
+    return {
+        title: metadata.title,
+        description: metadata.subtitle,
+    };
+}
+
 // TODO: Fix any type, figure out how to infer from generateStaticParams()
 export default function PostPage(props: { params: PathVariable }) {
     const { chapter, lesson } = decodeURIFromParams(props.params);
@@ -29,7 +43,9 @@ export default function PostPage(props: { params: PathVariable }) {
                 <h1 className='text-2xl text-slate-600 '>
                     {metadata.title}
                 </h1>
-                <p className='text-slate-400 mt-2'>{metadata.date}</p>
+                <p className='text-slate-400 mt-2'>
+                    {metadata.chapter}
+                </p>
             </div>
 
             <article className='prose'>
