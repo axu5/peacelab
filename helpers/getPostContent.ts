@@ -9,5 +9,9 @@ export default function getMarkdownContent(
     const filePath = `${folderLocation}/${chapter}/${lesson}.md`;
     const file = fs.readFileSync(filePath, "utf8");
     const matterResult = matter(file);
-    return matterResult;
+    const { data, ...rest } = matterResult;
+    return {
+        metadata: data,
+        ...rest,
+    };
 }

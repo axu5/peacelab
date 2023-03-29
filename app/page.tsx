@@ -3,8 +3,11 @@ import MarkdownPreview from "../components/MarkdownPreview";
 
 const HomePage = () => {
     const postMetadata = getMarkdownMetadata();
-    const lessonPreview = postMetadata.map(post => (
-        <MarkdownPreview key={post.slug} {...post} />
+    const lessonPreview = postMetadata.map(lesson => (
+        <MarkdownPreview
+            key={`${lesson.chapter}-${lesson.slug}`}
+            {...lesson}
+        />
     ));
 
     return (

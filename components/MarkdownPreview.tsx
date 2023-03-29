@@ -3,15 +3,19 @@ import { MarkdownMetadata } from "./MarkdownMetadata";
 
 export default function MarkdownPreview(props: MarkdownMetadata) {
     return (
-        <div
+        <Link
+            href={`/tutorials/${props.chapter}/${props.slug}`}
             className='border border-slate-300 p-4 rounded-md shadow-sm
     bg-white'>
-            <Link href={`/tutorials/${props.chapter}/${props.slug}`}>
-                <h2 className=' text-violet-600 hover:underline mb-4'>
+            <div>
+                <span className='text-sm text-gray-500'>
+                    {props.chapter}
+                </span>
+                <h2 className='text-violet-600 hover:underline my-2'>
                     {props.title}
                 </h2>
-            </Link>
-            <p className='text-slate-700'>{props.subtitle}</p>
-        </div>
+                <p className='text-slate-700'>{props.subtitle}</p>
+            </div>
+        </Link>
     );
 }

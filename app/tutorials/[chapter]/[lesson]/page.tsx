@@ -22,20 +22,18 @@ export const generateStaticParams = async () => {
 // TODO: Fix any type, figure out how to infer from generateStaticParams()
 export default function PostPage(props: { params: PathVariable }) {
     const { chapter, lesson } = decodeURIFromParams(props.params);
-    const lessonContent = getMarkdownContent(chapter, lesson);
+    const { metadata, content } = getMarkdownContent(chapter, lesson);
     return (
         <div>
             <div className='my-12 text-center'>
                 <h1 className='text-2xl text-slate-600 '>
-                    {lessonContent.data.title}
+                    {metadata.title}
                 </h1>
-                <p className='text-slate-400 mt-2'>
-                    {lessonContent.data.date}
-                </p>
+                <p className='text-slate-400 mt-2'>{metadata.date}</p>
             </div>
 
             <article className='prose'>
-                <Markdown>{lessonContent.content}</Markdown>
+                <Markdown>{content}</Markdown>
             </article>
         </div>
     );
