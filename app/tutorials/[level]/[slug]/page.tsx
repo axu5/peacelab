@@ -3,31 +3,32 @@ import getMarkdownMetadata from "@/helpers/getPostMetadata";
 import getMarkdownContent from "@/helpers/getPostContent";
 
 export const generateStaticParams = async () => {
-    const posts = getMarkdownMetadata();
-    return posts.map(post => ({
-        slug: post.slug,
-    }));
+    const tutorials = getMarkdownMetadata();
+    return tutorials.map(metadata => {
+        return {
+            slug: metadata.slug,
+            level: metadata.level,
+        };
+    });
 };
 
-const PostPage = (props: any) => {
-    const slug = props.params.slug;
-    const post = getMarkdownContent(slug);
+export default function PostPage(props: any) {
+    const { level, slug } = props.params;
+    const tutorial = getMarkdownContent(level, slug);
     return (
         <div>
             <div className='my-12 text-center'>
                 <h1 className='text-2xl text-slate-600 '>
-                    {post.data.title}
+                    {tutorial.data.title}
                 </h1>
                 <p className='text-slate-400 mt-2'>
-                    {post.data.date}
+                    {tutorial.data.date}
                 </p>
             </div>
 
             <article className='prose'>
-                <Markdown>{post.content}</Markdown>
+                <Markdown>{tutorial.content}</Markdown>
             </article>
         </div>
     );
-};
-
-export default PostPage;
+}

@@ -1,26 +1,31 @@
 import fs from "fs";
+import path from "path";
 import matter from "gray-matter";
 import { MarkdownMetadata } from "../components/MarkdownMetadata";
+import { folderLocation } from "@/constants/tutorial";
 
 export default function getMarkdownMetadata(): MarkdownMetadata[] {
-    const folder = "posts/";
-    const files = fs.readdirSync(folder);
-    const markdownPosts = files.filter(file => file.endsWith(".md"));
+    const difficulties = fs.readdirSync(folderLocation);
 
     // Get gray-matter data from each file.
-    const posts = markdownPosts.map(fileName => {
-        const fileContents = fs.readFileSync(
-            `posts/${fileName}`,
-            "utf8"
+    const paths = difficulties.flatMap(difficulty => {
+        const lessons = fs.readdirSync(
+            path.join(folderLocation, difficulty)
         );
-        const matterResult = matter(fileContents);
-        return {
-            title: matterResult.data.title,
-            date: matterResult.data.date,
-            subtitle: matterResult.data.subtitle,
-            slug: fileName.replace(".md", ""),
-        };
+        return lessons.map(fileName => {
+            const fileContents = fs.readFileSync(
+                `${folderLocation}/${difficulty}/${fileName}`,
+                "utf8"
+            );
+            const matterResult = matter(fileContents);
+            return {
+                title: matterResult.data.title,
+                subtitle: matterResult.data.subtitle,
+                slug: difficulty + "/" + fileName.replace(".md", ""),
+                level: difficulty,
+            };
+        });
     });
 
-    return posts;
+    return paths;
 }
