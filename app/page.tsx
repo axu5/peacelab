@@ -19,12 +19,9 @@ export const metadata: Metadata = {
 };
 
 const HomePage = () => {
-    const postMetadata = getMarkdownMetadata();
-    const lessonPreview = postMetadata.map(lesson => (
-        <MarkdownPreview
-            key={`${lesson.chapter}-${lesson.slug}`}
-            {...lesson}
-        />
+    const allLessons = getMarkdownMetadata();
+    const lessonPreview = allLessons.map(lesson => (
+        <MarkdownPreview key={lesson.id} {...lesson} />
     ));
 
     return (

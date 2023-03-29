@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { MarkdownMetadata } from "../components/MarkdownMetadata";
+import { MarkdownMetadata } from "./MarkdownMetadata";
 import { folderLocation } from "@/constants/tutorial";
 
 export default function getMarkdownMetadata(): MarkdownMetadata[] {
@@ -18,12 +18,13 @@ export default function getMarkdownMetadata(): MarkdownMetadata[] {
             const matterResult = matter(fileContents);
             const slug = fileName.replace(".md", "");
             return {
+                id: slug,
                 title: matterResult.data.title,
                 subtitle: matterResult.data.subtitle,
                 path: chapter + "/" + slug,
                 slug,
                 chapter,
-            };
+            } satisfies MarkdownMetadata;
         });
     });
 

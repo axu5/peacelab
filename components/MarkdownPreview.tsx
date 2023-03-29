@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MarkdownMetadata } from "./MarkdownMetadata";
+import { MarkdownMetadata } from "../helpers/MarkdownMetadata";
 
 export default function MarkdownPreview(props: MarkdownMetadata) {
     return (

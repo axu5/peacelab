@@ -37,10 +37,21 @@ export default function RootLayout({
         <footer>
             <div className='border-t border-slate-400 mt-12 py-6 text-center text-slate-400'>
                 <h3>
+                    <Link
+                        target='_blank'
+                        href='https://peacelab.org'
+                        className='hover:underline'>
+                        Peace Lab official website
+                    </Link>
+                </h3>
+            </div>
+            <div className='border-t border-slate-400 mt-12 py-6 text-center text-slate-400'>
+                <h3>
                     Designed by{" "}
                     <Link
                         target='_blank'
-                        href='https://github.com/pixegami/nextjs-blog-tutorial'>
+                        href='https://github.com/pixegami/nextjs-blog-tutorial'
+                        className='hover:underline'>
                         Pixegami
                     </Link>
                 </h3>
