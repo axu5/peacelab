@@ -1,13 +1,35 @@
 import Markdown from "markdown-to-jsx";
 import getMarkdownMetadata from "@/helpers/getPostMetadata";
 import getMarkdownContent from "@/helpers/getPostContent";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
-type PathVariable = {
+export type PathVariable = {
     lesson: string;
     chapter: string;
 };
 
 export const revalidate = 15;
+
+export function generateMetadata({
+    params,
+}: {
+    params: PathVariable;
+}): Metadata {
+    const { chapter, lesson } = decodeURIFromParams(params);
+    const response = getMarkdownContent(chapter, lesson);
+
+    if (!response) {
+        return notFound();
+    }
+
+    const { metadata } = response;
+
+    return {
+        title: metadata.title,
+        description: metadata.subtitle,
+    };
+}
 
 export const generateStaticParams = async () => {
     const allLessons = getMarkdownMetadata();
@@ -19,24 +41,19 @@ export const generateStaticParams = async () => {
     });
 };
 
-export function generateMetadata({
-    params,
-}: {
-    params: PathVariable;
-}) {
-    const { chapter, lesson } = params;
-    const { metadata } = getMarkdownContent(chapter, lesson);
-
-    return {
-        title: metadata.title,
-        description: metadata.subtitle,
-    };
-}
-
 // TODO: Fix any type, figure out how to infer from generateStaticParams()
 export default function PostPage(props: { params: PathVariable }) {
     const { chapter, lesson } = decodeURIFromParams(props.params);
-    const { metadata, content } = getMarkdownContent(chapter, lesson);
+    const response = getMarkdownContent(chapter, lesson);
+
+    if (!response) {
+        // Could fail if lesson was created but revalidation
+        // hasn't kicked in
+        return <>Something went wrong, try again later</>;
+    }
+
+    const { metadata, content } = response;
+
     return (
         <div>
             <div className='my-12 text-center'>
@@ -57,8 +74,8 @@ export default function PostPage(props: { params: PathVariable }) {
 
 function decodeURIFromParams(params: PathVariable): PathVariable {
     for (const [key, value] of Object.entries(params)) {
-        const k = key as unknown as keyof PathVariable;
-        params[k] = decodeURIComponent(value);
+        const k = key as keyof PathVariable;
+        params[k] = decodeURIComponent(value.replaceAll("-", " "));
     }
 
     return params;
@@ -66,8 +83,8 @@ function decodeURIFromParams(params: PathVariable): PathVariable {
 
 function encodeURIToParams(object: PathVariable): PathVariable {
     for (const [key, value] of Object.entries(object)) {
-        const k = key as unknown as keyof PathVariable;
-        object[k] = encodeURIComponent(value);
+        const k = key as keyof PathVariable;
+        object[k] = encodeURIComponent(value.replaceAll(" ", "-"));
     }
 
     return object;

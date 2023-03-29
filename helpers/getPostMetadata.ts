@@ -16,9 +16,7 @@ export default function getMarkdownMetadata(): MarkdownMetadata[] {
             const filePath = `${folderLocation}/${chapter}/${fileName}`;
             const fileContents = fs.readFileSync(filePath, "utf8");
             const matterResult = matter(fileContents);
-            const slug = encodeURIComponent(
-                fileName.replace(".md", "")
-            );
+            const slug = fileName.replace(".md", "");
             return {
                 title: matterResult.data.title,
                 subtitle: matterResult.data.subtitle,
