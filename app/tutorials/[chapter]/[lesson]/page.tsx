@@ -32,12 +32,14 @@ export function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-    const allLessons = getMarkdownMetadata();
-    return allLessons.map(metadata => {
-        return encodeURIToParams({
-            lesson: metadata.lesson,
-            chapter: metadata.chapter,
-        } as PathVariable);
+    const allChapters = getMarkdownMetadata();
+    return allChapters.flatMap(lessons => {
+        return lessons.map(metadata => {
+            return encodeURIToParams({
+                lesson: metadata.lesson,
+                chapter: metadata.chapter,
+            } as PathVariable);
+        });
     });
 };
 
@@ -52,15 +54,19 @@ export default function PostPage(props: { params: PathVariable }) {
         return <>Something went wrong, try again later</>;
     }
 
+    if (typeof window !== "undefined") {
+        console.log(window.localStorage);
+    }
+
     const { metadata, content } = response;
 
     return (
         <div>
             <div className='my-12 text-center'>
-                <span className='text-md text-slate-600 '>
+                <span className='text-md text-slate-600'>
                     {chapter}
                 </span>
-                <h1 className='text-2xl text-slate-600 '>
+                <h1 className='text-2xl text-slate-600'>
                     {metadata.title}
                 </h1>
             </div>

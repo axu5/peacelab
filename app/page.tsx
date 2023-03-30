@@ -3,6 +3,7 @@ import MarkdownPreview from "../components/MarkdownPreview";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+    title: "PeaceLab Tutorials",
     robots: {
         index: false,
         follow: true,
@@ -19,10 +20,12 @@ export const metadata: Metadata = {
 };
 
 const HomePage = () => {
-    const allLessons = getMarkdownMetadata();
-    const lessonPreview = allLessons.map(lesson => (
-        <MarkdownPreview key={lesson.id} {...lesson} />
-    ));
+    const allChapters = getMarkdownMetadata();
+    const lessonPreview = allChapters.flatMap(chapter => {
+        return chapter.map(lesson => (
+            <MarkdownPreview key={lesson.id} {...lesson} />
+        ));
+    });
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>

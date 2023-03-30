@@ -11,7 +11,7 @@
 
 # Coding TASKS
 
-[ ] Add a sidebar to lesson view
+[x] Add a sidebar to lesson view
 [ ] Search for lessons
 [ ] Local storage keep track of lessons
 [ ] Display chapter in lesson view

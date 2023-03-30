@@ -4,11 +4,11 @@ import matter from "gray-matter";
 import { MarkdownMetadata } from "./MarkdownMetadata";
 import { folderLocation } from "@/constants/tutorial";
 
-export default function getMarkdownMetadata(): MarkdownMetadata[] {
+export default function getMarkdownMetadata(): MarkdownMetadata[][] {
     const chapters = fs.readdirSync(folderLocation);
 
     // Get gray-matter data from each file.
-    const paths = chapters.flatMap(chapter => {
+    const paths = chapters.map(chapter => {
         const lessons = fs.readdirSync(
             path.join(folderLocation, chapter)
         );
