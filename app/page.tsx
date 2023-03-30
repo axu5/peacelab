@@ -1,4 +1,4 @@
-import getMarkdownMetadata from "../helpers/getPostMetadata";
+import getMarkdownMetadata from "../helpers/getLessonMetadata";
 import MarkdownPreview from "../components/MarkdownPreview";
 import type { Metadata } from "next";
 

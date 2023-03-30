@@ -2,10 +2,6 @@
 import Link from "next/link";
 import "../styles/globals.css";
 
-export const metadata = {
-    title: "PeaceLab Tutorials",
-};
-
 export default function RootLayout({
     children,
 }: {
@@ -44,15 +40,12 @@ export default function RootLayout({
                         Peace Lab official website
                     </Link>
                 </h3>
-            </div>
-            <div className='border-t border-slate-400 mt-12 py-6 text-center text-slate-400'>
                 <h3>
-                    Designed by{" "}
                     <Link
                         target='_blank'
                         href='https://github.com/pixegami/nextjs-blog-tutorial'
                         className='hover:underline'>
-                        Pixegami
+                        Designed by Pixegami
                     </Link>
                 </h3>
             </div>

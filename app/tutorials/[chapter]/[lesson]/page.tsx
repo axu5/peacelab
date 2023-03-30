@@ -1,6 +1,6 @@
 import Markdown from "markdown-to-jsx";
-import getMarkdownMetadata from "@/helpers/getPostMetadata";
-import getMarkdownContent from "@/helpers/getPostContent";
+import getMarkdownMetadata from "@/helpers/getLessonMetadata";
+import getMarkdownContent from "@/helpers/getLessonContent";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -9,7 +9,7 @@ export type PathVariable = {
     chapter: string;
 };
 
-export const revalidate = 15;
+export const revalidate = 1;
 
 export function generateMetadata({
     params,
@@ -35,7 +35,7 @@ export const generateStaticParams = async () => {
     const allLessons = getMarkdownMetadata();
     return allLessons.map(metadata => {
         return encodeURIToParams({
-            lesson: metadata.slug,
+            lesson: metadata.lesson,
             chapter: metadata.chapter,
         } as PathVariable);
     });
@@ -57,6 +57,9 @@ export default function PostPage(props: { params: PathVariable }) {
     return (
         <div>
             <div className='my-12 text-center'>
+                <span className='text-md text-slate-600 '>
+                    {chapter}
+                </span>
                 <h1 className='text-2xl text-slate-600 '>
                     {metadata.title}
                 </h1>

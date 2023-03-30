@@ -1,3 +1,9 @@
+// import { Metadata } from "next";
+
+// export const metadata: Metadata = {
+//     title: "PeaceLab Tutorials",
+// };
+
 export default function Head() {
     return (
         <>

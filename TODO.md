@@ -1,5 +1,6 @@
 # Chapters
 
+[ ] How to navigate this site
 [ ] How to edit PDFs
 [ ] Using Google suite
 

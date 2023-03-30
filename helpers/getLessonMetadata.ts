@@ -16,13 +16,13 @@ export default function getMarkdownMetadata(): MarkdownMetadata[] {
             const filePath = `${folderLocation}/${chapter}/${fileName}`;
             const fileContents = fs.readFileSync(filePath, "utf8");
             const matterResult = matter(fileContents);
-            const slug = fileName.replace(".md", "");
+            const lesson = fileName.replace(".md", "");
             return {
-                id: slug,
+                id: chapter + "-" + lesson,
                 title: matterResult.data.title,
                 subtitle: matterResult.data.subtitle,
-                path: chapter + "/" + slug,
-                slug,
+                path: chapter + "/" + lesson,
+                lesson: lesson,
                 chapter,
             } satisfies MarkdownMetadata;
         });

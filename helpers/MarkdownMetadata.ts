@@ -6,6 +6,6 @@ export type MarkdownFileMetadata = {
 export type MarkdownMetadata = {
     id: string;
     path: string;
-    slug: string;
+    lesson: string;
     chapter: string;
 } & MarkdownFileMetadata;

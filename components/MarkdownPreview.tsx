@@ -4,7 +4,7 @@ import { MarkdownMetadata } from "../helpers/MarkdownMetadata";
 export default function MarkdownPreview(props: MarkdownMetadata) {
     return (
         <Link
-            href={`/tutorials/${props.chapter}/${props.slug}`}
+            href={`/tutorials/${props.chapter}/${props.lesson}`}
             className='border border-slate-300 p-4 rounded-md shadow-sm
     bg-white'>
             <div>
