@@ -4,12 +4,12 @@ import getMarkdownContent from "@/helpers/getLessonContent";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-export type PathVariable = {
+type PathVariable = {
     lesson: string;
     chapter: string;
 };
 
-export const revalidate = 1;
+export const revalidate = false;
 
 export function generateMetadata({
     params,
@@ -75,7 +75,7 @@ export default function PostPage(props: { params: PathVariable }) {
 function decodeURIFromParams(params: PathVariable): PathVariable {
     for (const [key, value] of Object.entries(params)) {
         const k = key as keyof PathVariable;
-        params[k] = decodeURIComponent(value.replaceAll("-", " "));
+        params[k] = value.replaceAll("-", " ");
     }
 
     return params;
@@ -84,7 +84,7 @@ function decodeURIFromParams(params: PathVariable): PathVariable {
 function encodeURIToParams(object: PathVariable): PathVariable {
     for (const [key, value] of Object.entries(object)) {
         const k = key as keyof PathVariable;
-        object[k] = encodeURIComponent(value.replaceAll(" ", "-"));
+        object[k] = value.replaceAll(" ", "-");
     }
 
     return object;

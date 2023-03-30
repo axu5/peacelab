@@ -28,10 +28,7 @@ export default function LessonLayout({
                                     className='m-2'
                                     key={lessonMetadata.id}>
                                     <Link
-                                        href={
-                                            "tutorials/" +
-                                            lessonMetadata.path
-                                        }
+                                        href={lessonMetadata.path}
                                         className={cn(
                                             {
                                                 "bg-blue-200":
@@ -45,9 +42,6 @@ export default function LessonLayout({
                                             {
                                                 "text-white":
                                                     thisLesson,
-                                            },
-                                            {
-                                                "pl-5": thisChapter,
                                             },
                                             `flex p-2 rounded hover:bg-blue-400 cursor-pointer`
                                         )}>

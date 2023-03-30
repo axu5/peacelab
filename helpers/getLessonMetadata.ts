@@ -21,7 +21,10 @@ export default function getMarkdownMetadata(): MarkdownMetadata[] {
                 id: chapter + "-" + lesson,
                 title: matterResult.data.title,
                 subtitle: matterResult.data.subtitle,
-                path: chapter + "/" + lesson,
+                path: `${folderLocation}/${chapter}/${lesson}`.replaceAll(
+                    " ",
+                    "-"
+                ),
                 lesson: lesson,
                 chapter,
             } satisfies MarkdownMetadata;
