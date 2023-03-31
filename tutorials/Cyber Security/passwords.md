@@ -36,6 +36,27 @@ This may seem complicated to try to remember, and personally I do not remember a
 
 I highly, highly, highly, recommend that you use one as well.
 
+**Do not store passwords with the default chrom "Do you want to save your password?"**. It is common for attackers to use malware to extract these passwords from Chrome, Edge, Firefox, or any other browser. Do not save them.
+
+Click [here](chrome://settings/passwords) and turn off "Offer to save passwords" and "Auto Sign-In."
+
+![](/images/cyber-security/passwords/offer-to-save-passwords.png)
+
+You can delete all passwords from your browser by doing the following:
+
+1. Open your [privacy settings page](chrome://settings/privacy)
+2. Click on Clear browsing data
+
+![](/images/cyber-security/passwords/clear-browsing-data.png)
+
+3. Select advanced
+4. Set time range to be "All time"
+5. Select Passwords and other sign-in data
+
+![](/images/cyber-security/passwords/clear-passwords.png)
+
+6. Click "Clear data"
+
 ### Password managers
 
 A password manager is an encrypted "vault" where all of your email and password combinations are stored. To access this vault you will need a "master password," one password that you have to memorize. **Your master password should be extremely secure and you need to remember it**.

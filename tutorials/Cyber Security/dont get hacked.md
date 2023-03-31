@@ -30,7 +30,7 @@ Your data needs to be private, such as where you have been, what you have search
 4. Make sure the website is secure!
 
     Search for the lock icon, to the left of the website link. This can be found on the bar at the top of the page!
-    ![](/images/tls-cert.png)
+    ![](/images/cyber-security/dont-get-hacked/tls-cert.png)
 
     If there is no lock, this means that the website is insecure, and you should **NEVER** trust a website that does not have a lock on it!
 
