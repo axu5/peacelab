@@ -1,4 +1,4 @@
-import { MarkdownFileMetadata } from "./MarkdownMetadata";
+import { type MarkdownFileMetadata } from "./getLessonMetadata";
 import fs from "fs";
 import matter from "gray-matter";
 import { folderLocation } from "@/constants/tutorial";
