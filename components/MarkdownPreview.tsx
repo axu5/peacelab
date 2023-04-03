@@ -8,10 +8,10 @@ export default function MarkdownPreview(props: Lesson) {
             className='border border-slate-300 p-4 rounded-md shadow-sm
     bg-white'>
             <div>
-                <span className='text-sm text-gray-500'>
+                <span className='text-sm text-gray-500 capitalize'>
                     {props.chapter}
                 </span>
-                <h2 className='text-violet-600 hover:underline my-2'>
+                <h2 className='text-violet-600 capitalize hover:underline my-2'>
                     {props.lesson}
                 </h2>
                 <p className='text-slate-700'>{props.subtitle}</p>
