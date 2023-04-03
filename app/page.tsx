@@ -22,16 +22,22 @@ export const metadata: Metadata = {
 const HomePage = () => {
     const allChapters = getMarkdownMetadata();
     const lessonPreview = allChapters.flatMap(chapter => {
-        return chapter.map(lesson => (
-            <MarkdownPreview key={lesson.id} {...lesson} />
-        ));
+        return (
+            <div key={chapter.key}>
+                <span className=''>{chapter.name}</span>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                    {chapter.lessons.map(lesson => (
+                        <MarkdownPreview
+                            key={lesson.id}
+                            {...lesson}
+                        />
+                    ))}
+                </div>
+            </div>
+        );
     });
 
-    return (
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-            {lessonPreview}
-        </div>
-    );
+    return lessonPreview;
 };
 
 export default HomePage;

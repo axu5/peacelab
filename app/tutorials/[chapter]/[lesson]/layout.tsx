@@ -11,7 +11,7 @@ export default function LessonLayout({
     params: any;
     children: ReactNode;
 }) {
-    const { chapter, lesson } = params;
+    const { chapter: chapterName, lesson } = params;
     const allChapters = getMarkdownMetadata();
 
     return (
@@ -19,21 +19,21 @@ export default function LessonLayout({
             <aside className='w-full items-center bg-slate-100 xl:min-w-[calc((100%-42rem)*0.5)] xl:mx-5 xl:flex xl:h-screen xl:bg-white xl:w-60 xl:absolute xl:top-0 xl:left-0'>
                 <nav className='bg-slate-100 rounded p-5 xl:px-[calc((100%-42rem)*0.25)] '>
                     <ul>
-                        {allChapters.map(_chapter => {
+                        {allChapters.map(chapter => {
                             return (
-                                <div>
+                                <div key={chapter.key}>
                                     <div className='w-full flex'>
                                         <span className='lg:mx-auto'>
-                                            {_chapter[0].chapter}
+                                            {chapter.name}
                                         </span>
                                     </div>
-                                    {_chapter.map(metadata => {
+                                    {chapter.lessons.map(metadata => {
                                         const thisLesson =
                                             lesson ===
                                             metadata.lesson;
                                         const thisChapter =
-                                            chapter ===
-                                            metadata.chapter;
+                                            chapterName ===
+                                            chapter.name;
                                         return (
                                             <li
                                                 className='m-2'

@@ -33,11 +33,11 @@ export function generateMetadata({
 
 export const generateStaticParams = async () => {
     const allChapters = getMarkdownMetadata();
-    return allChapters.flatMap(lessons => {
-        return lessons.map(metadata => {
+    return allChapters.flatMap(chapter => {
+        return chapter.lessons.map(metadata => {
             return encodeURIToParams({
                 lesson: metadata.lesson,
-                chapter: metadata.chapter,
+                chapter: chapter.name,
             } as PathVariable);
         });
     });
