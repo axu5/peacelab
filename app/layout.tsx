@@ -54,7 +54,7 @@ export default function RootLayout({
 
     return (
         <html>
-            <head />
+            {/* <head></head> */}
             <body>
                 <div className='mx-auto max-w-2xl px-6'>
                     {header}
