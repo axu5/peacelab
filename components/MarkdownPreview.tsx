@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { MarkdownMetadata } from "../helpers/MarkdownMetadata";
+import { type Lesson } from "../helpers/getLessonMetadata";
 
-export default function MarkdownPreview(props: MarkdownMetadata) {
+export default function MarkdownPreview(props: Lesson) {
     return (
         <Link
             href={props.path}
@@ -12,7 +12,7 @@ export default function MarkdownPreview(props: MarkdownMetadata) {
                     {props.chapter}
                 </span>
                 <h2 className='text-violet-600 hover:underline my-2'>
-                    {props.title}
+                    {props.lesson}
                 </h2>
                 <p className='text-slate-700'>{props.subtitle}</p>
             </div>

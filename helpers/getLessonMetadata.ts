@@ -18,14 +18,17 @@ export type MarkdownFileMetadata = {
     subtitle: string;
 };
 
+export type Lesson = {
+    id: string;
+    path: string;
+    lesson: string;
+    chapter: typeof chapterOrder[number];
+} & MarkdownFileMetadata;
+
 export type MarkdownMetadata = {
     name: string;
     key: number;
-    lessons: ({
-        id: string;
-        path: string;
-        lesson: string;
-    } & MarkdownFileMetadata)[];
+    lessons: Lesson[];
 };
 
 export default function getMarkdownMetadata(): MarkdownMetadata[] {
@@ -58,8 +61,10 @@ export default function getMarkdownMetadata(): MarkdownMetadata[] {
                         " ",
                         "-"
                     ),
+                    chapter:
+                        chapterName as typeof chapterOrder[number],
                     lesson: lesson,
-                };
+                } satisfies Lesson;
             }),
         } satisfies MarkdownMetadata;
     });
