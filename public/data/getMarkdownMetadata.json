@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Site Navigation",
+    "key": 0,
+    "lessons": [
+      {
+        "id": "Site Navigation-how to navigate this site",
+        "title": "How to navigate this site",
+        "subtitle": "Learn how to use this site",
+        "path": "tutorials/Site-Navigation/how-to-navigate-this-site",
+        "chapter": "Site Navigation",
+        "lesson": "how to navigate this site"
+      }
+    ]
+  },
+  {
+    "name": "Googling",
+    "key": 1,
+    "lessons": [
+      {
+        "id": "Googling-searching",
+        "title": "How to search for information on Google",
+        "subtitle": "How to find useful information quicker",
+        "path": "tutorials/Googling/searching",
+        "chapter": "Googling",
+        "lesson": "searching"
+      }
+    ]
+  },
+  {
+    "name": "Editing Documents",
+    "key": 2,
+    "lessons": [
+      {
+        "id": "Editing Documents-docs",
+        "title": "Creating documents",
+        "subtitle": "How to create documents, edit them and useful shortcuts to be more productive",
+        "path": "tutorials/Editing-Documents/docs",
+        "chapter": "Editing Documents",
+        "lesson": "docs"
+      },
+      {
+        "id": "Editing Documents-kami",
+        "title": "How to edit PDF files",
+        "subtitle": "How to edit edit PDF files",
+        "path": "tutorials/Editing-Documents/kami",
+        "chapter": "Editing Documents",
+        "lesson": "kami"
+      },
+      {
+        "id": "Editing Documents-sheet",
+        "title": "Creating and editing data",
+        "subtitle": "Using google sheets to edit data and and graphs",
+        "path": "tutorials/Editing-Documents/sheet",
+        "chapter": "Editing Documents",
+        "lesson": "sheet"
+      },
+      {
+        "id": "Editing Documents-slides",
+        "title": "How to create presentations",
+        "subtitle": "Creating presentations is important for some job interviews, and making an impressive one can be very difficult",
+        "path": "tutorials/Editing-Documents/slides",
+        "chapter": "Editing Documents",
+        "lesson": "slides"
+      }
+    ]
+  },
+  {
+    "name": "Data Management",
+    "key": 3,
+    "lessons": [
+      {
+        "id": "Data Management-data protection",
+        "title": "Data backups",
+        "subtitle": "Backing up your data, especially for work, is so important that you need to learn about the 3-2-1 rule!",
+        "path": "tutorials/Data-Management/data-protection",
+        "chapter": "Data Management",
+        "lesson": "data protection"
+      }
+    ]
+  },
+  {
+    "name": "Cyber Security",
+    "key": 4,
+    "lessons": [
+      {
+        "id": "Cyber Security-dont get hacked",
+        "title": "Easy steps to not get hacked",
+        "subtitle": "Your data is sensitive, and needs to be protected. How can this be done?",
+        "path": "tutorials/Cyber-Security/dont-get-hacked",
+        "chapter": "Cyber Security",
+        "lesson": "dont get hacked"
+      },
+      {
+        "id": "Cyber Security-passwords",
+        "title": "Passwords",
+        "subtitle": "How to make and manage secure passwords",
+        "path": "tutorials/Cyber-Security/passwords",
+        "chapter": "Cyber Security",
+        "lesson": "passwords"
+      }
+    ]
+  }
+]
