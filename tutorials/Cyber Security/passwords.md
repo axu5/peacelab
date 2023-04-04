@@ -84,11 +84,11 @@ You have no control over where or when your data can be leaked, but that does no
 
 [Change your passwords](#creating-a-secure-password) starting with the most important sites.
 
-### How can I figure out if my data has been comprimised?
+### How can I figure out if my data has been compramised?
 
 A website to figure out if your accounts have been compromised exists. It is called [haveibeenpwned.com](https://haveibeenpwned.com), it was created by an Australian Web Security consultant called [Troy Hunt](https://en.wikipedia.org/wiki/Troy_Hunt).
 
-I suggest putting in your email and phone number to check if they have been compromised. However I will never recommend putting your password on sites, even if I personally trust them. However the option is there, and you may do this at your own discression.
+I suggest putting in your email and phone number to check if they have been compromised. However I will never recommend putting your password on sites, even if I personally trust them. However the option is there, and you may do this at your own discretion.
 
 # Special characters
 
