@@ -1,12 +1,12 @@
 # Chapters
 
 [ ] How to navigate this site
-[ ] How to edit PDFs
+[x] How to edit PDFs
 [ ] Using Google suite
 
--   [ ] Docs
+-   [x] Docs
 -   [ ] Gmail
--   [ ] Sheets
+-   [x] Sheets
 -   [ ] Slides
 
 # Coding TASKS
