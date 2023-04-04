@@ -23,7 +23,7 @@ export default function LessonLayout({
                             return (
                                 <div key={chapter.key}>
                                     <div className='w-full flex'>
-                                        <span className='lg:mx-auto'>
+                                        <span className='lg:mx-auto capitalize'>
                                             {chapter.name}
                                         </span>
                                     </div>
@@ -56,7 +56,7 @@ export default function LessonLayout({
                                                             "text-white":
                                                                 thisLesson,
                                                         },
-                                                        `flex p-2 rounded hover:bg-blue-400 cursor-pointer`
+                                                        `flex p-2 rounded hover:bg-blue-400 cursor-pointer capitalize`
                                                     )}>
                                                     {metadata.title}
                                                 </Link>

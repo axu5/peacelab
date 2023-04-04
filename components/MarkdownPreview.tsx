@@ -5,8 +5,7 @@ export default function MarkdownPreview(props: Lesson) {
     return (
         <Link
             href={props.path}
-            className='border border-slate-300 p-4 rounded-md shadow-sm
-    bg-white'>
+            className='border border-slate-300 p-4 rounded-md shadow-sm bg-white'>
             <div>
                 <span className='text-sm text-gray-500 capitalize'>
                     {props.chapter}

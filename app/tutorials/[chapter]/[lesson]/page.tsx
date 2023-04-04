@@ -3,6 +3,8 @@ import getMarkdownMetadata from "@/helpers/getLessonMetadata";
 import getMarkdownContent from "@/helpers/getLessonContent";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import fs from "fs";
+import { addToTFIDF, newTFIDF, saveTFIDF } from "@/helpers/tfidf";
 
 type PathVariable = {
     lesson: string;
@@ -32,15 +34,42 @@ export function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
+    const { tf, idf } = newTFIDF();
+
     const allChapters = getMarkdownMetadata();
-    return allChapters.flatMap(chapter => {
+    const returner = allChapters.flatMap(chapter => {
         return chapter.lessons.map(metadata => {
+            const response = getMarkdownContent(
+                chapter.name,
+                metadata.lesson
+            );
+
+            if (response == undefined) return;
+
+            const {
+                content: documentContent,
+                metadata: contentMetadata,
+            } = response;
+
+            addToTFIDF(
+                tf,
+                idf,
+                metadata.id,
+                documentContent,
+                contentMetadata.title,
+                contentMetadata.subtitle
+            );
+
             return encodeURIToParams({
                 lesson: metadata.lesson,
                 chapter: chapter.name,
             } as PathVariable);
         });
     });
+
+    saveTFIDF(tf, idf);
+
+    return returner;
 };
 
 // TODO: Fix any type, figure out how to infer from generateStaticParams()
@@ -52,10 +81,6 @@ export default function PostPage(props: { params: PathVariable }) {
         // Could fail if lesson was created but revalidation
         // hasn't kicked in
         return <>Something went wrong, try again later</>;
-    }
-
-    if (typeof window !== "undefined") {
-        console.log(window.localStorage);
     }
 
     const { metadata, content } = response;

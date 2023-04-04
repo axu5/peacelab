@@ -8,9 +8,9 @@ export default function getMarkdownContent(
     lesson: string
 ) {
     const filePath = `${folderLocation}/${chapter}/${lesson}.md`;
-    const file = fs.readFileSync(filePath, "utf8");
-
     if (!fs.existsSync(filePath)) return undefined;
+
+    const file = fs.readFileSync(filePath, "utf8");
 
     const matterResult = matter(file);
     const { data, ...rest } = matterResult;

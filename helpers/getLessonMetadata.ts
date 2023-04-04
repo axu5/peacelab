@@ -69,5 +69,12 @@ export default function getMarkdownMetadata(): MarkdownMetadata[] {
         } satisfies MarkdownMetadata;
     });
 
-    return paths.sort((a, b) => a.key - b.key);
+    const sortedPaths = paths.sort((a, b) => a.key - b.key);
+    // write to public data
+    fs.writeFileSync(
+        "./public/data/getMarkdownMetadata.json",
+        JSON.stringify(sortedPaths, null, 2)
+    );
+
+    return sortedPaths;
 }
