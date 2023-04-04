@@ -4,9 +4,7 @@ import { filter, TFIDF } from "./tfidf-shared";
 export async function search(searchTerm: string): Promise<Lesson[]> {
     const filteredTerm = filter(searchTerm);
 
-    const tfIdfResponse = await fetch(
-        "http://localhost:3000/data/tfidf.json"
-    );
+    const tfIdfResponse = await fetch("/data/tfidf.json");
 
     // could save to memory
     const tfIdf = (await tfIdfResponse.json()) as TFIDF;
@@ -54,7 +52,7 @@ export async function search(searchTerm: string): Promise<Lesson[]> {
     });
 
     const getMarkdownMetadataResponse = await fetch(
-        "http://localhost:3000/data/getMarkdownMetadata.json"
+        "/data/getMarkdownMetadata.json"
     );
     const allChapters = await getMarkdownMetadataResponse.json();
 
