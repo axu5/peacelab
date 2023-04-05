@@ -5,6 +5,7 @@ import "../styles/globals.css";
 import Link from "next/link";
 import { type FormEvent, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
     children,
@@ -106,6 +107,7 @@ export default function RootLayout({
                     {children}
                     {footer}
                 </div>
+                <Analytics />
             </body>
         </html>
     );
