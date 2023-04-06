@@ -14,3 +14,9 @@ If you click on the banner at the top, you will be taken to the main menu.
 On the side there are buttons to quickly access any tutorial.
 
 ![](/images/site-navigation/aside.png)
+
+And in the top right corner there is a search bar!
+
+![](/images/site-navigation/search-bar.png)
+
+I tried to make the site as simple as possible to navigate, hope this helps!
