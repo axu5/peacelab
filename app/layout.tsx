@@ -7,6 +7,15 @@ import { type FormEvent, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Analytics } from "@vercel/analytics/react";
 
+const footerLinks = {
+    "https://peacelab.org": "Peace Lab official website",
+    "https://github.com/pixegami/nextjs-blog-tutorial":
+        "Designed by Pixegami",
+    "https://axu5.vercel.app/": "Tutorials by Aleksanteri Aho",
+    "https://github.com/axu5/peacelab":
+        "Contribute some tutorials here!",
+};
+
 export default function RootLayout({
     children,
 }: {
@@ -69,31 +78,21 @@ export default function RootLayout({
 
     const footer = (
         <footer>
-            <div className='border-t border-slate-400 mt-12 py-6 text-center text-slate-400'>
-                <h3>
-                    <Link
-                        target='_blank'
-                        href='https://peacelab.org'
-                        className='hover:underline'>
-                        Peace Lab official website
-                    </Link>
-                </h3>
-                <h3>
-                    <Link
-                        target='_blank'
-                        href='https://github.com/pixegami/nextjs-blog-tutorial'
-                        className='hover:underline'>
-                        Designed by Pixegami
-                    </Link>
-                </h3>
-                <h3>
-                    <Link
-                        target='_blank'
-                        href='https://axu5.vercel.app/'
-                        className='hover:underline'>
-                        Articles by Aleksanteri Aho
-                    </Link>
-                </h3>
+            <div className='border-t border-slate-400 mt-12 py-6 text-center text-slate-500'>
+                {Object.entries(footerLinks).map(
+                    ([link, name], i) => {
+                        return (
+                            <h3 key={i}>
+                                <Link
+                                    target='_blank'
+                                    href={link}
+                                    className='hover:underline'>
+                                    {name}
+                                </Link>
+                            </h3>
+                        );
+                    }
+                )}
             </div>
         </footer>
     );
